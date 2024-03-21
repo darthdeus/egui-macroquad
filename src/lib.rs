@@ -50,15 +50,15 @@ use miniquad as mq;
 pub use egui;
 pub use macroquad;
 
-struct Egui {
-    egui_mq: EguiMq,
+pub struct Egui {
+    pub egui_mq: EguiMq,
     input_subscriber_id: usize,
 }
 
 // Global variable and global functions because it's more like macroquad way
 static mut EGUI: Option<Egui> = None;
 
-fn get_egui() -> &'static mut Egui {
+pub fn get_egui() -> &'static mut Egui {
     unsafe {
         if let Some(egui) = EGUI.as_mut() {
             egui
